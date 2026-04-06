@@ -11,9 +11,9 @@ namespace StudentManagementSystem.Controllers
     public class StudentsController : ControllerBase
     {
         private readonly StudentService _studentService;
-        private readonly ILogger<StudentsController> _logger;  // Changed
+        private readonly ILogger<StudentsController> _logger;  
 
-        public StudentsController(StudentService studentService, ILogger<StudentsController> logger)  // Changed
+        public StudentsController(StudentService studentService, ILogger<StudentsController> logger) 
         {
             _studentService = studentService;
             _logger = logger;
@@ -22,12 +22,12 @@ namespace StudentManagementSystem.Controllers
         [HttpGet]
         public async Task<ActionResult<ApiResponse<object>>> GetAll()
         {
-            _logger.LogInformation("Getting all students");  // Changed to LogInformation
+            _logger.LogInformation("Getting all students");  
             var students = await _studentService.GetAllStudents();
             return Ok(ApiResponse<object>.Ok(students));
         }
 
-        // Other methods remain the same but change _logger.Information to _logger.LogInformation
+        
         [HttpGet("{id}")]
         public async Task<ActionResult<ApiResponse<object>>> GetById(int id)
         {

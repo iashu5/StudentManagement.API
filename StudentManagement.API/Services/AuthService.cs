@@ -17,7 +17,7 @@ namespace StudentManagementSystem.Services
 
         public string Login(LoginDto login)
         {
-            // Simple demo authentication - replace with database check
+           
             if (login.Username == "admin" && login.Password == "password")
             {
                 return GenerateJwtToken(login.Username);

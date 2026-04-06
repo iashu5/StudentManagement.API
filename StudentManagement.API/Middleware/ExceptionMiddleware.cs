@@ -6,9 +6,9 @@ namespace StudentManagementSystem.Middleware
     public class ExceptionMiddleware
     {
         private readonly RequestDelegate _next;
-        private readonly ILogger<ExceptionMiddleware> _logger;  // Changed to Microsoft ILogger
+        private readonly ILogger<ExceptionMiddleware> _logger;  
 
-        public ExceptionMiddleware(RequestDelegate next, ILogger<ExceptionMiddleware> logger)  // Changed
+        public ExceptionMiddleware(RequestDelegate next, ILogger<ExceptionMiddleware> logger)  
         {
             _next = next;
             _logger = logger;
@@ -22,7 +22,7 @@ namespace StudentManagementSystem.Middleware
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "An error occurred");  // Changed to LogError
+                _logger.LogError(ex, "An error occurred");  
                 await HandleExceptionAsync(context, ex);
             }
         }
